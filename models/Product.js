@@ -23,21 +23,25 @@ Product.init(
     price: {
       type: DataTypes.FLOAT,
       allowNull: false,
-      isFloat: true
-    },
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      isNumeric: true,
-      defaultValue: 10
-    },
-    category_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id'
+      validate: {
+        isFloat: true,
       },
-    }
+    },
+  stock: {
+  type: DataTypes.INTEGER,
+  allowNull: false,
+  validate: {
+    isNumeric: true,
+  },
+  defaultValue: 10
+},
+  category_id: {
+  type: DataTypes.INTEGER,
+  references: {
+    model: 'category',
+    key: 'id'
+  },
+}
   },
   {
     sequelize,
